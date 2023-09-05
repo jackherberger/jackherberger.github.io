@@ -1,6 +1,8 @@
 import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+// import { Link } from 'react-router-dom';
+
 
 
 const Home = () => {
@@ -21,6 +23,15 @@ const Home = () => {
         deciphering complex challenges and crafting innovative solutions fuels 
         my drive and keeps me enamored with the ever-evolving world of technology.
         </p>
+        <div>
+          <a
+            href='https://drive.google.com/file/d/185Xj4Sb98YiD-FDIrHX8sgwOXDw_Agko/view?usp=sharing' // Replace with your desired external link
+            className='text-white group border-2 px-2 py-1 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'
+            style={{ display: 'inline-block', padding: '5px 10px' }} // Adjust padding as needed
+          >
+            <span style={{ marginRight: '5px' }}>View Resume</span>
+          </a>
+        </div>
       </div>
     </div>
   );

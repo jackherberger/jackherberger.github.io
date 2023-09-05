@@ -17,9 +17,9 @@ export const data=[
     },
     {
         id:2,
-        name:"Python and Flask Spotify App",
+        name:"Python and Flask Spotify Smart Recommend App",
         image:spotify,
-        github:"https://github.com/jackherberger/spotify_total_weekly/blob/main/spotifyWeekly.py",
+        github:"https://github.com/jackherberger/spotify_recommend",
         live:"",
     },
     {
