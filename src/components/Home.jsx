@@ -17,13 +17,13 @@ const Home = () => {
         <h2 className='text-4xl sm:text-7xl font-bold text-[#8892b0]'>
           I'm a passionate Computer Scientist.
         </h2>
-        <p className='text-[#8892b0] py-4 max-w-[700px]'>
+        <p className='text-[#8892b0] py-8 max-w-[700px]'>
         As a driven computer scientist student, I find immense joy in diving headfirst 
         into intricate problems that others might shy away from. The thrill of 
         deciphering complex challenges and crafting innovative solutions fuels 
         my drive and keeps me enamored with the ever-evolving world of technology.
         </p>
-        <p className='text-[#8892b0] py-4 max-w-[700px]'>
+        <p className='text-[#8892b0] pb-8 max-w-[700px]'>
         "Change breaks the brittle." – Jan Houtema
         </p>
         <div>
