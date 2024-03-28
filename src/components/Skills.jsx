@@ -11,7 +11,7 @@ import kibana from '../assets/kibana.png';
 import linux from '../assets/linux.png';
 import r from '../assets/r.png';
 import ReactImg from '../assets/react.png';
-import GitHub from '../assets/github.png';
+// import GitHub from '../assets/github.png';
 import node from '../assets/node.png';
 
 
