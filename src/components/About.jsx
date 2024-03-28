@@ -27,14 +27,14 @@ const About = () => {
               <p className='sm:break-words'>
               I am 3rd year Computer Science student at Cal Poly, San Luis Obispo. As I begin my 
               journey into my second half of my university career, I have developed 
-              strong skills in programming languages such as C, Python, Java, Assembly, 
+              strong skills in programming languages such as Python, Java, C, React, Assembly, 
               R, and Bash scripting. Just as importantly, I have spent a great deal of 
               time studying advanced algorithms and data structures, striving for efficiency 
               and optimization at every possible application. My coursework has also consisted 
               of fundamentally important courses such as Statistical Methods, Linear Analysis 
               and Algebra, Discrete Structures, Calculus and Mathematical Proofs, which has given 
               me a strong basis for this role. Alongside my technical skills, I have developed 
-              strong interpersonal skills such as communication, determination, coachability, 
+              strong interpersonal skills such as communication, determination, coach-ability, 
               and eagerness. These skills have driven me to be constantly learning and applying 
               my skills and abilities to real world problems.
               </p>  

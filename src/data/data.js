@@ -1,11 +1,9 @@
-import WorkIm from '../assets/projects/workImg.jpeg'
 import logger from '../assets/projects/logger.png'
 import spotify from '../assets/projects/spotify.png'
 import cserver from '../assets/projects/cserver.png'
 
 
 
-import RealEst from '../assets/projects/realestate.jpg'
 
 export const data=[
     {
