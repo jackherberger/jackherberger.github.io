@@ -14,6 +14,7 @@ const Contact = () => {
             <button className='text-white border-2 hover:bg-pink-600 hover:border-pink-600 px-4 py-3 my-8 mx-auto flex items-center'>Let's Connect!</button>
         </form>
     </div>
+
   )
 }
 

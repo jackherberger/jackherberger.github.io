@@ -23,9 +23,12 @@ const Home = () => {
         deciphering complex challenges and crafting innovative solutions fuels 
         my drive and keeps me enamored with the ever-evolving world of technology.
         </p>
+        <p className='text-[#8892b0] py-4 max-w-[700px]'>
+        "Change breaks the brittle." – Jan Houtema
+        </p>
         <div>
           <a
-            href='https://drive.google.com/file/d/1dfgGWyOSLMFrXzzjMNzScjODfApRgpPe/view?usp=sharing' // Replace with your desired external link
+            href='https://drive.google.com/file/d/1dfgGWyOSLMFrXzzjMNzScjODfApRgpPe/view?usp=sharing'
             className='text-white group border-2 px-2 py-1 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'
             style={{ display: 'inline-block', padding: '5px 10px' }} // Adjust padding as needed
           >
