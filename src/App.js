@@ -31,13 +31,6 @@ function App() {
       <div>
         <Contact />
       </div>
-      {/* <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Experience />
-      <Work />
-      <Contact /> */}
     </div>
   );
 }
