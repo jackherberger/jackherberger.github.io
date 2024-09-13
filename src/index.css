@@ -28,3 +28,11 @@
         hsla(242, 74%, 61%, 0.8)   
     )!important;
 }
+
+.divider {
+    border: none; /* Remove default border */
+    border-top: 2px solid #ccc; /* Add a custom border */
+    margin: 20px 0; /* Add margin to create space above and below the line */
+    /* Adjust the margin-bottom to control the buffer below the line */
+    margin-bottom: 40px; /* Example: 40px buffer below the line */
+  }

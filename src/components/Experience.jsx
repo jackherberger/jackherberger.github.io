@@ -1,6 +1,8 @@
 import React from 'react';
 import ICG from '../assets/ICG.jpg';
 import ingram_slide from '../assets/ingram_slide.png';
+import apple_logo from '../assets/apple_logo_white.png';
+
 
 const Experience = () => {
   return (
@@ -11,6 +13,43 @@ const Experience = () => {
             <p className='text-4xl font-bold inline border-b-4 border-pink-600'>
               Experience 
             </p>
+          </div>
+        </div>
+        <div className='max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4'>
+          <div className='sm:mt-0 mt-4'>
+            <img src={apple_logo} alt='John Herberger' className='w-60 h-auto' />
+          </div>
+          <div className='sm:text-left text-4xl font-bold'>
+            <h1>Apple:</h1>
+            <h2>Technical Product Manager Intern</h2>
+            <div className='sm:max-w-[1000px] mt-10 mb-8 w-full pr-4'>
+              <p className='text-base sm:text-m'>
+                Summer of 2024 I worked as a Technical Product Manager Intern for Apple.
+                I worked on the Pricing Infrastructure that handles all 1st and 3rd party
+                developers on the App Store. My roles included the following:
+              </p>  
+            </div>
+          </div>
+        </div>
+        <div className='max-w-[1000px] w-full'>
+          {/* <div>
+            <img src={ingram_slide} alt='Ingram Slide' className='max-w-full h-auto' />
+          </div> */}
+          <div className='text-sm sm:break-wordssm:text-base text-gray-400 mt-10 mb-40 mx-20'>
+            <ul className='list-disc list-inside'>
+              <li>
+              Collaborated closely with partner product managers, developer relations, business management,
+              engineering, engineering project management, design, legal and other functions to deliver tools that
+              unlock and manage commerce and pricing capabilities for 1st and 3rd party developers</li>
+              <li>
+              Established guardrails that protect our customers, our developers and the integrity of the App Store              </li>
+              <li>
+              Translated business goals for commerce and pricing capabilities into detailed technical requirements
+              used during the design, development and quality assurance of the tools</li>
+              <li>
+              Developed expertise in the Apple pricing platform, empowering external facing teams to enhance the
+              adoption of features, answer questions, and propose practical solutions that meet developer needs</li>
+            </ul>
           </div>
         </div>
         <div className='max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4'>
