@@ -1,7 +1,7 @@
 import React from 'react';
 import ICG from '../assets/ICG.jpg';
 import ingram_slide from '../assets/ingram_slide.png';
-import apple_logo from '../assets/apple_logo_white.png';
+import apple_logo from '../assets/inf_loop.jpg';
 
 
 const Experience = () => {
@@ -17,7 +17,7 @@ const Experience = () => {
         </div>
         <div className='max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4'>
           <div className='sm:mt-0 mt-4'>
-            <img src={apple_logo} alt='John Herberger' className='w-60 h-auto' />
+            <img src={apple_logo} alt='John Herberger' className='w-100 h-auto' />
           </div>
           <div className='sm:text-left text-4xl font-bold'>
             <h1>Apple:</h1>
@@ -63,7 +63,7 @@ const Experience = () => {
           </div>
           <div className='sm:max-w-[1000px] mb-10 w-full px-8'>
             <p className='sm:break-words'>
-              Over the summer of 2023, I worked as a Information Technology Systems 
+              Over the summer of 2023, I worked as a Systems 
               Engineer Intern for Ingram Content Group, a large scale publisher and 
               distrubuter. The project was to aid systems construction during the creation of
               a brand new manurfacturing and distrubution plant in Pennsylvania. My roles included the following:

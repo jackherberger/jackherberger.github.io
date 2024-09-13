@@ -16,7 +16,7 @@ const Home = () => {
           Jack Herberger
         </h1>
         <h2 className='text-4xl sm:text-7xl font-bold text-[#8892b0]'>
-          I'm a passionate Computer Scientist.
+          Lets build.
         </h2>
         <p className='text-[#8892b0] py-8 max-w-[700px]'>
         As a driven computer scientist student, I find immense joy in diving headfirst 

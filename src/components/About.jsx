@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '../assets/heroImage.png';
+import heroImage from '../assets/headshot.jpg';
 
 const About = () => {
   return (
@@ -22,18 +22,14 @@ const About = () => {
           </div>
           <div className='sm:max-w-[1000px] w-full px-4'>
             <p className='sm:break-words'>
-              I am 3rd year Computer Science student at Cal Poly, San Luis Obispo. As I begin my 
-              journey into my second half of my university career, I have developed 
-              strong skills in programming, some of which you can see below. 
+              I am senior Computer Science student at Cal Poly, San Luis Obispo. As I begin my 
+              journey into my professional career I am excited to bring my passion for technology
+              to the world. 
             </p>  
             <p className='mt-4 sm:break-words'>
-              Just as importantly, I have spent a great deal of time studying advanced algorithms 
-              and data structures, striving for efficiency and optimization at every possible application. 
-            </p>
-            <p className='mt-4 sm:break-words'>
-              As I continute to learn and grow, I have developed a keen interest in Technical Product Management.
-              How can we optimize our product development process to enhance efficiency, maintain quality, and meet evolving market demands
-              to bring a truly amazing product to our customer?
+              As I continute to learn and grow, I have developed a keen interest in how to bring amazing products to users.
+              I am driven by how we can optimize our product development process to enhance efficiency, maintain quality, 
+              and meet evolving market demands to bring a truly amazing product to market.
             </p>
             <p className='mt-4 sm:break-words'>
               Alongside my technical skills, I have developed 
