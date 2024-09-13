@@ -29,7 +29,7 @@ const Home = () => {
         </p>
         <div>
           <a
-            href='https://drive.google.com/file/d/1dfgGWyOSLMFrXzzjMNzScjODfApRgpPe/view?usp=sharing'
+            href='https://drive.google.com/file/d/1t8_EV0RUjYRbL_n1OnYwmOnBvViHvjuL/view?usp=share_link'
             className='text-white group border-2 px-2 py-1 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'
             style={{ display: 'inline-block', padding: '5px 10px' }} // Adjust padding as needed
           >
