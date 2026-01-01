@@ -62,7 +62,7 @@ const Experience = () => {
             <img src={ICG} alt='John Herberger' className='w-60 h-auto' />
           </div>
           <div className='sm:max-w-[1000px] mb-10 w-full px-8'>
-            <p className='sm:break-words'>
+            <p className='sm:break-wordms'>
               Over the summer of 2023, I worked as a Systems 
               Engineer Intern for Ingram Content Group, a large scale publisher and 
               distrubuter. The project was to aid systems construction during the creation of
