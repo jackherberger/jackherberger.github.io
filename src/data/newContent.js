@@ -128,6 +128,28 @@ export const projects = [
     polished: false,
     link: 'https://github.com/jackherberger/NFL_statistics'
   },
+  {
+    id: 6,
+    title: 'logger (Java world simulation)',
+    subtitle: 'A Java-based simulation of a world with logging',
+    date: '2024-01-05T10:00:00',
+    services: ['Java', 'Simulation', 'Logging'],
+    image: null,
+    content: `A simulation of a world where agents interact with each other and their environment, with a focus on logging their actions and the state of the world.`,
+    polished: false,
+    link: 'https://github.com/jackherberger/logger'
+  },
+  {
+    id: 7,
+    title: 'BYOTCP (Build Your Own TCP)',
+    subtitle: 'A from-scratch implementation of the TCP protocol',
+    date: '2024-01-05T10:00:00',
+    services: ['Networking', 'C++', 'TCP'],
+    image: null,
+    content: `An educational project to implement the TCP protocol from scratch in C++, providing a deeper understanding of how network protocols work.`,
+    polished: false,
+    link: 'https://github.com/jackherberger/TCPserver'
+  },
 ];
 
 export const openQuestions = [
