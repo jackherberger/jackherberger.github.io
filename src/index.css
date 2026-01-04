@@ -2,37 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 @layer base {
     body {
-        @apply font-[Raleway];
-    }
-    li {
-        @apply px-4;
-        @apply cursor-pointer
+        font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 }
-
-.content-div {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 250px;
-}
-
-.content-div:hover {
-    background-image: linear-gradient(
-        to right,
-        rgba(112, 157, 255, 0.8),
-        hsla(242, 74%, 61%, 0.8)   
-    )!important;
-}
-
-.divider {
-    border: none; /* Remove default border */
-    border-top: 2px solid #ccc; /* Add a custom border */
-    margin: 20px 0; /* Add margin to create space above and below the line */
-    /* Adjust the margin-bottom to control the buffer below the line */
-    margin-bottom: 40px; /* Example: 40px buffer below the line */
-  }

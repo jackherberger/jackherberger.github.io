@@ -1,37 +1,26 @@
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import Skills from "./components/Skills";
-import Work from "./components/Work";
-import Experience from "./components/Experience";
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Info from './components/Info';
+import ProjectDetail from './components/ProjectDetail';
+import Post from './components/Post';
+import NewPostForm from './components/NewPostForm'; // Import the new form component
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
+    <Router>
       <div>
         <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/admin/new-post" element={<NewPostForm />} /> {/* Route for the new post form */}
+          <Route path="/:projectId" element={<ProjectDetail />} />
+          <Route path="/:projectId/:postId" element={<Post />} />
+        </Routes>
       </div>
-      <div>
-        <Home />
-      </div>
-      <div>
-        <About />
-      </div>
-      <div>
-        <Skills />
-      </div>
-      <div>
-        <Work />
-      </div>
-      <div>
-        <Experience />
-      </div>
-      <div>
-        <Contact />
-      </div>
-    </div>
+    </Router>
   );
 }
 
