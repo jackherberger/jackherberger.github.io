@@ -36,7 +36,7 @@ const Home = () => {
     },
     {
       title: 'Photography',
-      path: 'https://github.com/jackherberger/photography.git', // External URL
+      path: 'https://www.jackherberger.com/lambdaCatfishPhotography/', // External URL
       external: true, // New property to indicate external link
       image: null,
     },
