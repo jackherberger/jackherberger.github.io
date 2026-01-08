@@ -18,11 +18,15 @@ Now I could talk on and on about how AlexNet and backpropagation revived deep le
 Instead, I want to talk about the hidden gift of AlexNet - human interpretable layers. 
 
 When you’re learning neural networks, much of the process is surprisingly understandable. You can grasp how models are structured, what happens during training and testing, and how to interpret performance metrics. With some effort, these pieces fit together into a coherent mental model.
+
 What’s far harder to understand is what happens inside the model during inference. When a network looks at an image of a dog and outputs the label “dog,” how does it actually get there? What internal steps does it take, and what representations is it relying on along the way?
+
 This difficulty isn’t new, but it has become especially pronounced with modern large language models. LLMs contain billions, potentially even trillions, of parameters distributed across hundreds of layers. At that scale, the model’s internal reasoning reduces to an immense web of floating-point operations, making it nearly impossible to intuit how any specific prediction is formed.
+
 The result is a familiar black box problem: you understand the architecture, you control the inputs, and you observe the outputs, but the reasoning in between remains opaque.
-The hidden benefit of CNNs, and AlexNet in particular, is that instead of extremely long flattened vectors at each layer, the layers in the model are actually grids of pixels. 
-This empowers us to open up the model and actually look at what is happening.
+
+The hidden benefit of CNNs, and AlexNet in particular, is that instead of extremely long flattened vectors at each layer, the layers in the model are actually grids of pixels. This empowers us to open up the model and actually look at what is happening.
+
 This is when I had my first true Ah-Ha moment with how deep learning models are working under the hood.
 
 What you see inside AlexNet is a hierarchy of increasingly abstract visual representations. 
@@ -36,6 +40,7 @@ For me this was genuinely staggering. All of the sudden this very abstract conce
 What AlexNet gave me wasn’t a breakthrough model, but a way of seeing how learning happens inside a neural network. For a brief moment in the history of deep learning, the internal representations were not only powerful, but legible: grids of activations that mirrored how humans reason about images, building meaning from edges to objects. That interpretability wasn’t an explicit design goal, but it became an invaluable teaching tool. 
 
 Sometimes the most important breakthroughs are the ones that help us understand why a model works, not just that it does. 
+
 
 
 Dear reader: if this intrigues you, and you’d like a post diving into the details on these learned representations with AlexNet, do let me know :)
