@@ -155,8 +155,8 @@ export const projects = [
 export const openQuestions = [
   {
     id: 1,
-    title: 'Model addition',
-    subtitle: 'Can models get addicted to things?',
+    title: 'Model addiction',
+    subtitle: 'Can LLLMs exhibit signs of addiction?',
     date: '2024-06-28T12:00:00',
     services: ['AI', 'Philosophy'],
     image: null,
