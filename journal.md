@@ -1,0 +1,69 @@
+# Project Revamp Journal
+
+This document summarizes the changes made during the recent revamp of the personal website. The goal was to transform the site's aesthetic and functionality to match the minimalist and project-focused style of `tylermcrobert.com`.
+
+---
+
+## Key Changes by File/Component:
+
+### `src/components/Navbar.jsx`
+-   **Minimalist Header:** The Navbar was refactored to a minimalist header, displaying "Jack Herberger" (or your preferred name) on the left and an "Info" link on the right.
+-   **Styling:** Removed bold styling from the name.
+
+### `src/components/Home.jsx`
+-   **Homepage Layout:** Completely rewritten to display a numbered list of project categories.
+-   **Unicode Numbering:** Implemented Unicode circled numbers (①, ②, ③, etc.) for the list items.
+-   **Inline Layout:** List items are now displayed inline, wrapping naturally, with appropriate spacing.
+-   **Hover Effect Removal:** The image preview on hover functionality was removed.
+-   **External Link Handling:** Modified to dynamically render either a React Router `Link` or a standard `<a>` tag based on whether the `path` is external (e.g., "Photography" links to a GitHub repo).
+-   **Unbolded Titles:** Removed bold styling from the section titles.
+
+### `src/components/Info.jsx`
+-   **Info Page Creation:** A new `Info.jsx` component was created to serve as the "About Me" / "Bio" page.
+-   **Layout:** Initially designed with three columns (contact, interests, skills), then reverted to two columns (contact, interests) by removing the skills section.
+-   **"My Story" Link:** Added a prominent "My Story" link directly under the bio, leading to a specific post in "Personal Writing" with an introductory subtitle and circled "1" Unicode character.
+-   **Image Addition:** Included `badge_wind.png` at the bottom left under the social links.
+-   **"CLIENTS" to "INTERESTS"**: The section title was updated, and placeholder content for interests was added.
+
+### `src/components/ProjectDetail.jsx`
+-   **Dynamic Content Display:** Updated to display a list of entries (posts) for a given category, rather than a single project detail.
+-   **"Polished" and "Coming Soon" Sections:** Implemented logic to filter posts based on a `polished` flag (from `newContent.js`) into two distinct sections, separated by a horizontal rule, with a "Coming soon" heading and subtitle.
+-   **GitHub Links:** Added conditional rendering for GitHub links next to post titles if a `link` property is present in the data.
+-   **Date Display:** Included date in a smaller font under subtitles.
+-   **Title Styling:** Reverted the category title style to a parenthesized format (e.g., `(technical stories)`).
+
+### `src/components/Post.jsx`
+-   **Post Detail Layout:** Created to display the content of an individual post, structured to match the `post.png` screenshot.
+-   **Markdown Rendering:** Integrated `react-markdown` to render post content written in Markdown.
+-   **Text Alignment:** Content is left-aligned within the `prose` container.
+-   **Services Display:** Services are displayed inline, separated by "•" characters, allowing for natural wrapping.
+
+### `src/components/NewPostForm.jsx`
+-   **New Post Creation Form:** Created an `/admin/new-post` route and component to provide a user-friendly interface for generating new post data.
+-   **Markdown Input:** Includes a textarea for Markdown content input.
+-   **Polished Flag:** Added a checkbox to specify the `polished` status of a new post.
+-   **Code Generation:** Generates a JavaScript object string that can be easily copied into `newContent.js`.
+
+### `src/data/newContent.js`
+-   **Enhanced Data Structure:** Modified to include `subtitle`, `date`, `services`, `content` (Markdown), `polished` (boolean), and `link` (for external repos) fields for each post entry.
+-   **Updated Content:** Placeholder content was updated for existing posts, and several new projects and technical stories were added, all with `polished: false` initially.
+-   **Readability:** Formatted for improved readability with consistent indentation and line breaks.
+
+### `src/index.css`
+-   **CSS Cleanup:** Removed all custom CSS rules, relying primarily on Tailwind CSS.
+-   **Font Integration:** Imported and set "Inter" as the primary font, with "Helvetica Neue", Helvetica, Arial, sans-serif as fallbacks.
+
+### `tailwind.config.js`
+-   **Typography Plugin:** Installed and configured `@tailwindcss/typography` plugin to correctly render `prose` classes for Markdown styling.
+
+### `.github/workflows/deploy.yml`
+-   **Deployment Workflow Update:** Modified the GitHub Actions workflow to switch from `actions/deploy-pages@v3` to `peaceiris/actions-gh-pages@v3` for deploying to the `gh-pages` branch.
+-   **Permissions:** Granted `contents: write` permission to the workflow to allow pushing to the `gh-pages` branch.
+
+---
+
+## Next Steps:
+-   Remember to periodically check the `newContent.js` file and manually update the `id` for new posts generated by the `NewPostForm`.
+-   Populate the placeholder Markdown content with your actual blog posts and project descriptions.
+-   Upload relevant images to `src/assets/projects` and update the `image` paths in `newContent.js` accordingly.
+-   Consider updating the `services` arrays with more accurate keywords for each post.

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { technicalStories, personalWriting, projects as contentProjects, openQuestions } from '../data/newContent';
 
 const Post = () => {
@@ -53,7 +54,7 @@ const Post = () => {
         </div>
 
         <div className='prose prose-lg max-w-none mx-auto text-left'>
-          <ReactMarkdown>{post.content.trim()}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content.trim()}</ReactMarkdown>
         </div>
 
         {post.image && (

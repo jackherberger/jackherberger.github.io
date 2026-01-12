@@ -21,7 +21,7 @@ const Info = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'> {/* Reverted to 2 columns */}
           <div>
             <ul className='text-xl'>
-              <li className='mb-2'>• E-M → <a href="mailto:herberger.jack@gmail.com" className='hover:line-through'>hello@jackherberger.com</a></li>
+              <li className='mb-2'>• E-M → <a href="mailto:herberger.jack@gmail.com" className='hover:line-through'>herberger.jack@gmail.com</a></li>
               <li className='mb-2'>• IN → <a href="https://www.linkedin.com/in/jack-herberger/" target="_blank" rel="noopener noreferrer" className='hover:line-through'>@jackherberger</a></li>
               <li className='mb-2'>• GH → <a href="https://github.com/jackherberger" target="_blank" rel="noopener noreferrer" className='hover:line-through'>@jackherberger</a></li>
             </ul>

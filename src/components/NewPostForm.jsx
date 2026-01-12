@@ -34,9 +34,18 @@ const NewPostForm = () => {
       polished
     };
 
-    const codeString = `// Add this object to the '${category}' array in src/data/newContent.js
-{
-  id: ${newPostObject.id},
+    const folderMap = {
+      'technical-stories': 'technical',
+      'personal-writing': 'personal',
+      'projects': 'projects',
+      'open-questions': 'questions'
+    };
+    const folder = folderMap[category] || 'misc';
+
+    const codeString = `// 1. Create a new file: src/data/posts/${folder}/<your-slug>.js
+// 2. Paste the following content:
+const data = {
+  id: REPLACE_WITH_NEW_ID,
   title: '${newPostObject.title}',
   subtitle: '${newPostObject.subtitle}',
   date: '${newPostObject.date}',
@@ -44,7 +53,11 @@ const NewPostForm = () => {
   image: ${newPostObject.image ? `'${newPostObject.image}'` : null},
   content: \`${newPostObject.content}\`,
   polished: ${newPostObject.polished}
-},`;
+};
+
+export default data;
+
+// 3. Import it in src/data/newContent.js and add it to the corresponding array.`;
 
     setGeneratedCode(codeString);
   };
@@ -97,7 +110,7 @@ const NewPostForm = () => {
         {generatedCode && (
           <div className='mt-8'>
             <h2 className='text-2xl font-bold mb-4'>Generated Code</h2>
-            <p className='mb-2'>Copy the code below and paste it into the appropriate array in <strong>src/data/newContent.js</strong>. Remember to replace <strong>REPLACE_WITH_NEW_ID</strong> with the next available ID in the array.</p>
+            <p className='mb-2'>Follow the instructions in the code block below:</p>
             <pre className='bg-gray-100 p-4 rounded overflow-x-auto'>
               <code>{generatedCode}</code>
             </pre>
