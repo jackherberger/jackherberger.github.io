@@ -28,7 +28,7 @@ export const technicalStories = [
   alexnetsHiddenGift,
   keysOnARing,
   publicMachinePrivateFiles,
-  // stronglyTyped,
+  stronglyTyped,
 ];
 
 export const personalWriting = [
