@@ -1,7 +1,7 @@
 const data = {
   id: 1,
   title: 'AlexNets Hidden Gift',
-  subtitle: 'The Ah-Ha Moment of Filters Making Deep Learning Understandable',
+  subtitle: 'The Moment Deep Learning Stopped Being a Black Box',
   date: '2026-01-04T22:08:52.490Z',
   services: ['AI', 'Computer Vision', 'Interpretability'],
   image: null,
@@ -24,13 +24,17 @@ This difficulty isn’t new, but it has become especially pronounced with modern
 
 The result is a familiar black box problem: you understand the architecture, you control the inputs, and you observe the outputs, but the reasoning in between remains opaque.
 
-The hidden benefit of CNNs, and AlexNet in particular, is that instead of extremely long flattened vectors at each layer, the layers in the model are actually grids of pixels. This empowers us to open up the model and actually look at what is happening.
+The hidden benefit of CNNs, and AlexNet in particular, is that for much of the network, representations aren’t abstract vectors but spatial grids. They are feature maps that preserve the structure of the image
 
 This is when I had my first true Ah-Ha moment with how deep learning models are working under the hood.
 
+When you actually open up AlexNet, you don’t see abstract vectors or inscrutable numbers, you see images. The first layer contains dozens of small filters, each only a few pixels wide. When visualized, they look uncannily familiar: black and white edge detectors at different angles, color blobs responding to reds or blues, simple gradient patterns. These weren’t programmed in. The network discovered them on its own.
+
+As you move deeper into the network, the visualizations change. Activations become less literal and more selective. Certain neurons light up strongly for fur textures, others for circular shapes, others for repeated patterns. By the later layers, entire regions activate only when specific object parts are present; faces, wheels, eyes, snouts. You can feed in an image and watch different layers respond, almost like peeling back layers of perception.
+
 What you see inside AlexNet is a hierarchy of increasingly abstract visual representations. 
 
-Early layers apply small learned filters across the image, responding to simple patterns like edges and gradients; deeper layers combine these signals into textures, parts, and eventually whole objects. (Early layers detect edges, later layers detect eyes and mouths, later layers detect a whole face, …).
+Early layers apply small learned filters across the image, responding to simple patterns like edges and gradients; deeper layers combine these signals into textures, parts, and eventually whole objects.
 
 What made AlexNet remarkable to me wasn’t just its performance, but the fact that this hierarchy was visible: you could literally inspect the learned filters and watch classical computer vision concepts re-emerge inside a neural network trained end-to-end. 
 
