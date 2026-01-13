@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.730b8a7a.css",
-    "main.js": "/static/js/main.75d7e183.js",
+    "main.js": "/static/js/main.6377280d.js",
     "static/media/badge_wind.png": "/static/media/badge_wind.beaf7bb9ed132ca7bd4d.png",
     "index.html": "/index.html",
     "main.730b8a7a.css.map": "/static/css/main.730b8a7a.css.map",
-    "main.75d7e183.js.map": "/static/js/main.75d7e183.js.map"
+    "main.6377280d.js.map": "/static/js/main.6377280d.js.map"
   },
   "entrypoints": [
     "static/css/main.730b8a7a.css",
-    "static/js/main.75d7e183.js"
+    "static/js/main.6377280d.js"
   ]
 }
