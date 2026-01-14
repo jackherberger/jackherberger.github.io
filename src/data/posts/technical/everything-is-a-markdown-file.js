@@ -13,10 +13,12 @@ Modern AI agentic capabilities feels strangely similar.
 
 Agents, skills, tools, policies, memory - it’s all just markdown files. Different entities, but same interface. Just structured natural language in markdown format loaded into the models context.
 
+
 An “Agent” is a markdown document describing behavior.
 A “Skill” is a markdown document describing how to perform a task.
 A “tool” is a markdown (okay, sometimes JSON ;) describing inputs and outputs.
 System rules, examples, rubrics, persistent memory - all follow the same pattern.
+
 
 In Unix, a file does nothing until it’s opened, piped, or executed.
 In agent systems, a markdown file does nothing until it’s loaded into the models context.

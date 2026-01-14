@@ -40,12 +40,12 @@ export const personalWriting = [
 ];
 
 export const projects = [
+  vida,
   sonosApiSetup,
   esp32Cam,
   househunter,
   fairwayForecast,
   relationalNfl,
-  vida,
   movieRecommender,
   logger,
   byotcp]

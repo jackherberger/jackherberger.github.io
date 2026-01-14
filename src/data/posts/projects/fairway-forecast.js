@@ -5,9 +5,7 @@ const data = {
   date: '2024-12-14T12:00:00',
   services: ['Machine Learning', 'Python', 'Scala', 'Apache Spark', 'Data Engineering'],
   image: null,
-  content: `# Fairway Forecast: From Python Notebooks to Distributed Spark Clusters
-
-Predicting the outcome of a professional golf tournament is part science, part art, and, as we discovered, part massive data engineering. Our project, **Fairway Forecast**, was approached as both a distrubuted Spark application, as well as a sci-kit powered Jupyter Notebook.
+  content: `Predicting the outcome of a professional golf tournament is part science, part art, and, as we discovered, part massive data engineering. Our project, **Fairway Forecast**, was approached as both a distrubuted Spark application, as well as a sci-kit powered Jupyter Notebook.
 
 ## The Genesis: Python, Scikit-Learn, and the 2022 Masters
 

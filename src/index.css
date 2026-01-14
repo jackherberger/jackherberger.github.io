@@ -5,7 +5,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 @layer base {
+
     body {
+
         font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
     }
+
+}
+
+
+
+pre, code {
+
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+
+
+.prose code {
+
+  color: inherit;
+
+  background-color: rgba(229, 231, 235, 0.5); /* gray-200 with opacity */
+
+  padding: 0.2rem 0.4rem;
+
+  border-radius: 0.25rem;
+
+}
+
+
+
+.prose pre {
+
+  background-color: #f3f4f6; /* gray-100 */
+
+  padding: 1rem;
+
+  border-radius: 0.25rem;
+
+  overflow-x: auto;
+
+}
+
+
+
+.prose pre code {
+
+  background-color: transparent;
+
+  padding: 0;
+
 }

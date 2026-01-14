@@ -5,10 +5,7 @@ const data = {
   date: '2024-12-14T12:00:00',
   services: ['Machine Learning', 'Python', 'K-Means', 'KNN', 'Data Science'],
   image: null,
-  content: `# Building a Smarter Movie Recommendation System: A Machine Learning Approach
-
-
-## The Paradox of Choice
+  content: `## The Paradox of Choice
 
 We have all been there. You sit down with your dinner, open Netflix, Prime Video, or Hulu, and spend more time scrolling through titles than actually watching anything. With streaming libraries expanding exponentially, the "paradox of choice" is real.
 

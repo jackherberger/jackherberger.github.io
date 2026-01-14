@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import { technicalStories, personalWriting, projects as contentProjects, openQuestions } from '../data/newContent';
 
 const Post = () => {
@@ -54,7 +57,7 @@ const Post = () => {
         </div>
 
         <div className='prose prose-lg max-w-none mx-auto text-left'>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content.trim()}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>{post.content.trim()}</ReactMarkdown>
         </div>
 
         {post.image && (

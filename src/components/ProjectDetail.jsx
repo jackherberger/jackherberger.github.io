@@ -56,7 +56,7 @@ const ProjectDetail = () => {
           <>
             <hr className='my-12 border-gray-300' />
             <div className='mb-8'>
-              <h2 className='text-5xl font-bold'>Coming soon</h2>
+              <h2 className='text-5xl'>Coming soon</h2>
               <p className='text-xl text-gray-600'>The following items are in the process of being cleaned and polished for posting.</p>
             </div>
             <div className='grid grid-cols-1 gap-8'>

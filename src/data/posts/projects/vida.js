@@ -12,7 +12,7 @@ Using the **AneRBC dataset**, we built and tested three distinct deep learning a
 ---
 
 ## The Challenge
-Anemia isn't just one condition; it manifests in various shapes, sizes, and colors of red blood cells (RBCs). Traditional diagnosis involves looking at a Peripheral Blood Smear (PBS) slide under a microscope and analyzing a Complete Blood Count (CBC) report. We wanted to build a model that mimics this clinical workflow—looking at the cells *and* the numbers simultaneously.
+Anemia isn't just one condition; it manifests in various shapes, sizes, and colors of red blood cells (RBCs). Traditional diagnosis involves looking at a Peripheral Blood Smear (PBS) slide under a microscope and analyzing a Complete Blood Count (CBC) report. We wanted to build a model that mimics this clinical workflow, looking at the cells *and* the numbers simultaneously.
 
 ## Deep Learning Methodology
 
@@ -41,7 +41,7 @@ Our final and most robust model mimicked a doctor's full diagnosis. We created a
 
 ## Key Results & Takeaways
 
-In medical diagnostics, **Recall** is often more critical than precision—we rarely want to tell an anemic patient they are healthy (False Negative).
+In medical diagnostics, **Recall** is often more critical than precision. We rarely want to tell an anemic patient they are healthy (False Negative).
 
 | Model | Accuracy | Recall |
 | :--- | :--- | :--- |
