@@ -3,6 +3,7 @@ import alexnetsHiddenGift from './posts/technical/alexnets-hidden-gift';
 import keysOnARing from './posts/technical/keys-on-a-ring';
 import publicMachinePrivateFiles from './posts/technical/public-machine-private-files';
 import stronglyTyped from './posts/technical/strongly-typed';
+import everythingIsAMarkdownFile from './posts/technical/everything-is-a-markdown-file';
 
 // Personal Writing
 import theDeTethering from './posts/personal/the-de-tethering';
@@ -29,6 +30,7 @@ export const technicalStories = [
   keysOnARing,
   publicMachinePrivateFiles,
   stronglyTyped,
+  everythingIsAMarkdownFile,
 ];
 
 export const personalWriting = [
