@@ -1,6 +1,6 @@
 import React from 'react'; // Removed useState
 import { Link } from 'react-router-dom';
-import { technicalStories, personalWriting, openQuestions, projects as contentProjects } from '../data/newContent';
+import { blogPosts, projects as contentProjects } from '../data/newContent';
 
 const Home = () => {
   // Removed hoveredImage state
@@ -15,30 +15,20 @@ const Home = () => {
 
   const sections = [
     {
-      title: 'Technical stories',
-      path: '/technical-stories',
-      image: technicalStories[0]?.image,
-    },
-    {
-      title: 'Personal writing',
-      path: '/personal-writing',
-      image: personalWriting[0]?.image,
-    },
-    {
-      title: 'Projects',
-      path: '/projects',
-      image: contentProjects[0]?.image,
-    },
-    {
-      title: 'Open questions',
-      path: '/open-questions',
-      image: openQuestions[0]?.image,
+      title: 'Blog',
+      path: '/blog',
+      image: blogPosts[0]?.image,
     },
     {
       title: 'Photography',
       path: 'https://www.jackherberger.com/lambdaCatfishPhotography/', // External URL
       external: true, // New property to indicate external link
       image: null,
+    },
+    {
+      title: 'Projects',
+      path: '/projects',
+      image: contentProjects[0]?.image,
     },
     {
       title: 'About me',

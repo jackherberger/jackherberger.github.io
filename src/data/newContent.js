@@ -55,3 +55,9 @@ export const openQuestions = [
   modelAddiction,
   isIgnoranceBliss,
 ];
+
+export const blogPosts = [
+  ...technicalStories.map(p => ({ ...p, category: 'Technical', id: `technical-${p.id}` })),
+  ...personalWriting.map(p => ({ ...p, category: 'Personal', id: `personal-${p.id}` })),
+  ...openQuestions.map(p => ({ ...p, category: 'Question', id: `question-${p.id}` })),
+].sort((a, b) => new Date(b.date) - new Date(a.date));

@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
-import { technicalStories, personalWriting, projects as contentProjects, openQuestions } from '../data/newContent';
+import { technicalStories, personalWriting, projects as contentProjects, openQuestions, blogPosts } from '../data/newContent';
 
 const Post = () => {
   const { projectId, postId } = useParams();
@@ -15,10 +15,11 @@ const Post = () => {
     'personal-writing': personalWriting,
     'projects': contentProjects,
     'open-questions': openQuestions,
+    'blog': blogPosts,
   };
 
   const projectCategory = allContent[projectId];
-  const post = projectCategory ? projectCategory.find(p => p.id === parseInt(postId)) : null;
+  const post = projectCategory ? projectCategory.find(p => String(p.id) === String(postId)) : null;
 
   if (!post) {
     return (
