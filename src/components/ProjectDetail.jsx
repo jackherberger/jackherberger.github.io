@@ -46,13 +46,13 @@ const ProjectDetail = () => {
   const filteredPosts = isBlog 
     ? (selectedCategory === 'All' 
         ? projectCategory 
-        : projectCategory.filter(post => post.category === selectedCategory))
+        : projectCategory.filter(post => post.category && post.category.includes(selectedCategory)))
     : projectCategory;
 
   const polishedPosts = filteredPosts.filter(post => post.polished);
   const comingSoonPosts = filteredPosts.filter(post => !post.polished);
 
-  const categories = ['All', 'Technical', 'Personal', 'Question'];
+  const categories = ['All', 'Technical', 'Personal', 'Philosophical'];
 
   return (
     <div name='project-detail' className='w-full min-h-screen bg-white p-8 text-black relative'>
@@ -110,7 +110,18 @@ const ProjectDetail = () => {
             <div key={item.id} className='group relative pl-4 border-l border-gray-200 hover:border-black transition-colors duration-300'>
               <div className='flex flex-col sm:flex-row sm:items-baseline justify-between mb-2'>
                 <div className='flex items-center gap-3 flex-wrap'>
-                  {item.category && (
+                  {item.category && Array.isArray(item.category) ? (
+                    item.category.map(cat => (
+                     <span key={cat} className={`
+                       text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border
+                       ${cat === 'Technical' ? 'bg-blue-50 text-blue-600 border-blue-200' : 
+                         cat === 'Personal' ? 'bg-purple-50 text-purple-600 border-purple-200' :
+                         'bg-orange-50 text-orange-600 border-orange-200'}
+                     `}>
+                       {cat}
+                     </span>
+                    ))
+                  ) : item.category && (
                      <span className={`
                        text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border
                        ${item.category === 'Technical' ? 'bg-blue-50 text-blue-600 border-blue-200' : 
@@ -147,15 +158,21 @@ const ProjectDetail = () => {
           <>
             <div className='my-24 flex items-center gap-4'>
                <div className='h-px bg-gray-200 flex-grow'></div>
-               <span className='text-gray-400 font-mono text-sm uppercase tracking-widest'>In The Works</span>
+               <span className='text-gray-400 font-normal text-sm text-center'>(Following posts are in the process of being polished)</span>
                <div className='h-px bg-gray-200 flex-grow'></div>
             </div>
             
-            <div className='grid grid-cols-1 gap-12 opacity-60'>
+            <div className='grid grid-cols-1 gap-12 opacity-80'>
               {comingSoonPosts.map((item) => (
                 <div key={item.id} className='pl-4 border-l border-gray-100'>
                    <div className='flex items-center gap-3 mb-2'>
-                      {item.category && (
+                      {item.category && Array.isArray(item.category) ? (
+                        item.category.map(cat => (
+                          <span key={cat} className='text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border bg-gray-50 text-gray-400 border-gray-200'>
+                            {cat}
+                          </span>
+                        ))
+                      ) : item.category && (
                         <span className='text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border bg-gray-50 text-gray-400 border-gray-200'>
                           {item.category}
                         </span>

@@ -2,7 +2,7 @@ const data = {
   id: 2,
   title: 'Is ignorance bliss?',
   subtitle: 'Is training models on "golden" data exuding ignorance?',
-  date: '2026-01-04T20:53:42.353Z',
+  date: '2026-02-04T20:53:42.353Z',
   services: ['AI', 'LLM', 'alignment'],
   image: null,
   content: `

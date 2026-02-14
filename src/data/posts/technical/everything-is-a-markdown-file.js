@@ -2,7 +2,7 @@ const data = {
   id: 5,
   title: 'Everything is a (markdown) file',
   subtitle: 'The return of simple interfaces',
-  date: '2026-01-13T10:00:00',
+  date: '2026-01-12T10:00:00',
   services: ['AI', 'Unix', 'LLMs'],
   image: null,
   content: `Unix had such a simple idea that worked so well: [everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file).

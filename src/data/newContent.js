@@ -57,7 +57,7 @@ export const openQuestions = [
 ];
 
 export const blogPosts = [
-  ...technicalStories.map(p => ({ ...p, category: 'Technical', id: `technical-${p.id}` })),
-  ...personalWriting.map(p => ({ ...p, category: 'Personal', id: `personal-${p.id}` })),
-  ...openQuestions.map(p => ({ ...p, category: 'Question', id: `question-${p.id}` })),
+  ...technicalStories.map(p => ({ ...p, category: ['Technical'], id: `technical-${p.id}` })),
+  ...personalWriting.map(p => ({ ...p, category: ['Personal'], id: `personal-${p.id}` })),
+  ...openQuestions.map(p => ({ ...p, category: p.id === 2 ? ['Technical', 'Philosophical'] : ['Philosophical'], id: `question-${p.id}` })),
 ].sort((a, b) => new Date(b.date) - new Date(a.date));

@@ -2,7 +2,7 @@ const data = {
   id: 1,
   title: 'AlexNets Hidden Gift',
   subtitle: 'The Moment Deep Learning Stopped Being a Black Box',
-  date: '2026-01-04T22:08:52.490Z',
+  date: '2026-01-01T22:08:52.490Z',
   services: ['AI', 'Computer Vision', 'Interpretability'],
   image: null,
   content: `
