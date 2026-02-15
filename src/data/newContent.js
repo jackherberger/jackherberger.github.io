@@ -20,6 +20,8 @@ import logger from './posts/projects/logger';
 import byotcp from './posts/projects/byotcp';
 import vida from './posts/projects/vida';
 import movieRecommender from './posts/projects/movie-recommender';
+// import facialDetector from './posts/projects/facial-keypoints.js';
+
 
 // Open Questions
 import modelAddiction from './posts/questions/model-addiction';
@@ -48,7 +50,8 @@ export const projects = [
   relationalNfl,
   movieRecommender,
   logger,
-  byotcp]
+  byotcp,
+]
 
 
 export const openQuestions = [

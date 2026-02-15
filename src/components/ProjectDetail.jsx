@@ -41,19 +41,25 @@ const ProjectDetail = () => {
   }
 
   const isBlog = projectId === 'blog';
+  const isProject = projectId === 'projects';
 
   // Filter logic
   const filteredPosts = isBlog 
     ? (selectedCategory === 'All' 
         ? projectCategory 
         : projectCategory.filter(post => post.category && post.category.includes(selectedCategory)))
+    : isProject
+    ? (selectedCategory === 'All'
+        ? projectCategory
+        : projectCategory.filter(post => post.tags && post.tags.includes(selectedCategory)))
     : projectCategory;
 
   const polishedPosts = filteredPosts.filter(post => post.polished);
   const comingSoonPosts = filteredPosts.filter(post => !post.polished);
 
   const categories = ['All', 'Technical', 'Personal', 'Philosophical'];
-
+  const tags = ['All', 'Machine Learning', 'Computer Vision', 'Systems Programming', 'Distributed Computing', 'Agentic AI'];
+  
   return (
     <div name='project-detail' className='w-full min-h-screen bg-white p-8 text-black relative'>
       <div className='max-w-[1000px] mx-auto py-8'>
@@ -65,7 +71,7 @@ const ProjectDetail = () => {
              </h1>
            </div>
            
-           {isBlog && (
+           {(isBlog || isProject) && (
              <div className='mt-2' ref={filterRef}>
                <div className='text-xl text-gray-500 font-normal flex flex-wrap items-center gap-2 transition-all duration-300 ease-in-out'>
                  <span>Filtering for</span>
@@ -80,7 +86,7 @@ const ProjectDetail = () => {
                  ) : (
                    <div className='inline-flex flex-wrap items-center gap-x-4 gap-y-2 text-black'>
                      <span>(</span>
-                     {categories.map((cat) => (
+                     {(isBlog ? categories : tags).map((cat) => (
                        <button
                          key={cat}
                          onClick={() => {
@@ -99,7 +105,7 @@ const ProjectDetail = () => {
                    </div>
                  )}
 
-                 <span>stories</span>
+                 <span>{isBlog ? 'stories' : 'projects'}</span>
                </div>
              </div>
            )}
@@ -110,26 +116,26 @@ const ProjectDetail = () => {
             <div key={item.id} className='group relative pl-4 border-l border-gray-200 hover:border-black transition-colors duration-300'>
               <div className='flex flex-col sm:flex-row sm:items-baseline justify-between mb-2'>
                 <div className='flex items-center gap-3 flex-wrap'>
-                  {item.category && Array.isArray(item.category) ? (
-                    item.category.map(cat => (
-                     <span key={cat} className={`
-                       text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border
-                       ${cat === 'Technical' ? 'bg-blue-50 text-blue-600 border-blue-200' : 
-                         cat === 'Personal' ? 'bg-purple-50 text-purple-600 border-purple-200' :
-                         'bg-orange-50 text-orange-600 border-orange-200'}
-                     `}>
-                       {cat}
-                     </span>
-                    ))
-                  ) : item.category && (
-                     <span className={`
-                       text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border
-                       ${item.category === 'Technical' ? 'bg-blue-50 text-blue-600 border-blue-200' : 
-                         item.category === 'Personal' ? 'bg-purple-50 text-purple-600 border-purple-200' :
-                         'bg-orange-50 text-orange-600 border-orange-200'}
-                     `}>
-                       {item.category}
-                     </span>
+                  {(item.category || item.tags) && (
+                    <>
+                      {(isBlog ? item.category : item.tags).map(cat => (
+                        <span key={cat} className={`
+                          text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border
+                          ${isBlog ? (cat === 'Technical' ? 'bg-blue-50 text-blue-600 border-blue-200' : 
+                            cat === 'Personal' ? 'bg-purple-50 text-purple-600 border-purple-200' :
+                            'bg-orange-50 text-orange-600 border-orange-200') :
+                            (cat === 'Computer Vision' ? 'bg-blue-50 text-blue-600 border-blue-200' :
+                            cat === 'Machine Learning' ? 'bg-green-50 text-green-600 border-green-200' :
+                            cat === 'Systems Programming' ? 'bg-red-50 text-red-600 border-red-200' :
+                            cat === 'Distributed Computing' ? 'bg-yellow-50 text-yellow-600 border-yellow-200' :
+                            // cat === 'Security' ? 'bg-indigo-50 text-indigo-600 border-indigo-200' :
+                            'bg-pink-50 text-pink-600 border-pink-200')
+                          }
+                        `}>
+                          {cat}
+                        </span>
+                      ))}
+                    </>
                   )}
                    <span className='text-sm text-gray-400 font-mono'>{new Date(item.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                 </div>
@@ -140,6 +146,7 @@ const ProjectDetail = () => {
                   {item.title}
                 </h2>
               </Link>
+
 
               <p className='text-lg sm:text-xl text-gray-600 leading-relaxed font-light'>
                 {item.subtitle}

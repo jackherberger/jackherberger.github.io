@@ -2,6 +2,7 @@ const data = {
   id: 6,
   title: 'Java world simulation',
   subtitle: 'A Java-based simulation of a world with logging',
+  tags: ['Systems Programming'],
   date: '2024-01-05T10:00:00',
   services: ['Java', 'Simulation', 'Logging'],
   image: null,

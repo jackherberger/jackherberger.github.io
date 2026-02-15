@@ -2,6 +2,7 @@ const data = {
   id: 5,
   title: 'Relational NFL',
   subtitle: 'A relational database for NFL statistics',
+  tags: ['Systems Programming'],
   date: '2024-01-05T10:00:00',
   services: ['Databases', 'SQL', 'Data Modeling'],
   image: null,

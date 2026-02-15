@@ -2,6 +2,7 @@ const data = {
   id: 8,
   title: 'VIDA: Visual Intelligence for Detecting Anemia',
   subtitle: 'Visual Intelligence for Detecting Anemia',
+  tags: ['Machine Learning', 'Computer Vision'],
   date: '2026-01-11T12:00:00',
   services: ['Deep Learning', 'Computer Vision', 'Health Tech', 'PyTorch'],
   image: null,

@@ -2,6 +2,7 @@ const data = {
   id: 9,
   title: 'Building a Smarter Movie Recommendation System',
   subtitle: 'A Machine Learning Approach',
+  tags: ['Machine Learning'],
   date: '2024-12-14T12:00:00',
   services: ['Machine Learning', 'Python', 'K-Means', 'KNN', 'Data Science'],
   image: null,

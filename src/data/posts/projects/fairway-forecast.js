@@ -2,6 +2,7 @@ const data = {
   id: 4,
   title: 'Fairway Forecast',
   subtitle: 'From Python Notebooks to Distributed Spark Clusters',
+  tags: ['Machine Learning', 'Distributed Computing'],
   date: '2024-12-14T12:00:00',
   services: ['Machine Learning', 'Python', 'Scala', 'Apache Spark', 'Data Engineering'],
   image: null,

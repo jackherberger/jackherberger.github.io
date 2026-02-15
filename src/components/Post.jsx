@@ -43,11 +43,19 @@ const Post = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'>
           <div>
             <p className='text-gray-600'>{post.date}</p>
-            <div className='flex flex-wrap text-gray-600'>
-              {post.services && post.services.map((service, index) => (
-                <span key={index} className='mr-2'>
-                  {service}
-                  {index < post.services.length - 1 && <span className='mx-2'>•</span>}
+            <div className='flex flex-wrap mt-4'>
+              {post.tags && post.tags.map((tag, index) => (
+                <span key={index} className={`
+                  text-xs font-normal px-2 py-1 rounded-md uppercase tracking-wide border mr-2
+                  ${tag === 'Computer Vision' ? 'bg-blue-50 text-blue-600 border-blue-200' :
+                    tag === 'Machine Learning' ? 'bg-green-50 text-green-600 border-green-200' :
+                    tag === 'Systems Programming' ? 'bg-red-50 text-red-600 border-red-200' :
+                    tag === 'Distributed Computing' ? 'bg-yellow-50 text-yellow-600 border-yellow-200' :
+                    tag === 'Security' ? 'bg-indigo-50 text-indigo-600 border-indigo-200' :
+                    'bg-pink-50 text-pink-600 border-pink-200'
+                  }
+                `}>
+                  {tag}
                 </span>
               ))}
             </div>

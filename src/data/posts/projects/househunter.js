@@ -2,6 +2,7 @@ const data = {
   id: 3,
   title: 'Unlocking "Curb Appeal" with Deep Learning',
   subtitle: 'Inside the House Hunter Project',
+  tags: ['Machine Learning', 'Computer Vision'],
   date: '2025-01-11T12:00:00',
   services: ['Deep Learning', 'Computer Vision', 'Real Estate', 'Multi-Modal Learning', 'Python'],
   image: null,
