@@ -43,7 +43,7 @@ const Home = () => {
         <ol className='text-4xl sm:text-5xl md:text-6xl text-black leading-relaxed'>
           {sections.map((section, index) => (
             <React.Fragment key={section.path}>
-              <li className='inline mr-4 mb-2 whitespace-nowrap'>
+              <li className='block sm:inline sm:mr-4 mb-2 whitespace-nowrap'>
                 {section.external ? (
                   <a href={section.path} target="_blank" rel="noopener noreferrer" className='hover:line-through decoration-2'>
                     {getCircledNumber(index + 1)} {section.title}
@@ -54,7 +54,7 @@ const Home = () => {
                   </Link>
                 )}
               </li>
-              {index === 1 && <li className='block h-0 w-full mb-2 content-[""]'></li>}
+              {index === 1 && <li className='hidden sm:block h-0 w-full mb-2 content-[""]'></li>}
             </React.Fragment>
           ))}
         </ol>
