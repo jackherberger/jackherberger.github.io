@@ -24,6 +24,8 @@
         "web-vitals": "^2.1.0"
     },
     "scripts": {
+        "prestart": "node scripts/generate-posts.js",
+        "prebuild": "node scripts/generate-posts.js",
         "start": "react-scripts start",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",

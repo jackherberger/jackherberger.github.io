@@ -1,0 +1,25 @@
+// AUTO-GENERATED FROM fuse.md - DO NOT EDIT DIRECTLY
+const data = {
+  "id": 11,
+  "title": "MirrorFS: Transparent Filesystem Encryption",
+  "subtitle": "Architecting a secure C-based storage layer using FUSE and AES-256-CBC",
+  "tags": [
+    "Systems Programming",
+    "UNIX",
+    "Cryptography"
+  ],
+  "date": "2025-01-16T12:00:00",
+  "services": [
+    "C",
+    "FUSE",
+    "OpenSSL",
+    "Linux Kernel",
+    "Systems Design"
+  ],
+  "image": null,
+  "polished": true,
+  "# link": "https://github.com/jackherberger/mirror-fs",
+  "content": "# MirrorFS: Building a Transparent Encryption Layer with FUSE\n\nIn storage security, \"Encryption at Rest\" is the gold standard. While usually handled by hardware or cloud providers, building a transparent encryption layer from scratch reveals the fascinating complexity of how filesystems actually handle data.\n\n**MirrorFS** is a FUSE-based filesystem that sits between the Linux Kernel and the physical disk. It provides a \"plaintext window\" into a directory where all underlying data is actually scrambled using AES-256-CBC.\n\n---\n\n## 1. The Hidden Metadata Strategy (IV Management)\n\nAES in CBC (Cipher Block Chaining) mode requires an **Initialization Vector (IV)** for every encryption operation. Using the same IV for the same file twice would result in identical ciphertext, leaking patterns to an attacker.\n\n**The Problem:** Standard filesystems don't have a \"secret slot\" for 16-bytes of metadata per file. If you prepend the IV to the file, all your offsets break.\n\n**The Solution:** MirrorFS implements a parallel hidden directory structure. For every file `foo.txt`, a 16-byte IV is stored in `.iv/foo.txt`.\n\n```c\n// How MirrorFS locates its hidden IV files\nchar* getIVpath(const char *path, int dir) {\n    const char *lastSlash = strrchr(path, '/');\n    size_t prefixLen = lastSlash - path + 1; \n    size_t totalLen = strlen(path) + 3 + 1;\n\n    char *newPath = calloc(totalLen, 1);\n    strncpy(newPath, path, prefixLen);\n    newPath[prefixLen] = '\\0';\n    strcat(newPath, \".iv/\"); // Inject the hidden folder into the path\n    \n    if (dir == 0) {\n        strcat(newPath, lastSlash + 1);\n    }\n    return newPath;\n}\n```\n\n---\n\n## 2. Two Philosophies of Encryption\n\nThis project explores two radically different ways to integrate cryptography into a C program.\n\n### Approach A: The High-Performance Library (`fuse.c`)\nThis version links directly against `libcrypto` and uses the OpenSSL EVP (Envelope) API. This allows for high-speed, in-memory encryption without the overhead of process creation.\n\n```c\n// Using OpenSSL EVP for in-memory encryption\nEVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();\nEVP_EncryptInit_ex(ctx, EVP_aes_256_cbc(), NULL, key, iv);\nEVP_EncryptUpdate(ctx, ciphertext, &len, plaintext, plaintext_len);\nEVP_EncryptFinal_ex(ctx, ciphertext + len, &len);\nEVP_CIPHER_CTX_free(ctx);\n```\n\n### Approach B: The \"Unix Philosophy\" Exec (`fuse-exec.c`)\nIn a clever architectural twist, this version treats the `openssl` binary as a black box. It forks child processes and uses pipes to stream data through the system's existing crypto tools.\n\n```c\n// Piping filesystem data through a child process\npid = fork();\nif (pid == 0) { // Child\n    dup2(pipefd[1], STDOUT_FILENO); // Redirect stdout to pipe\n    char *args[] = {\"./openssl\", \"-d\", key, fpath, \"/dev/stdout\", NULL};\n    execv(\"./openssl\", args);\n} else { // Parent\n    read(pipefd[0], buf, size); // Read decrypted data from the pipe\n}\n```\n\n---\n\n## 3. The \"FUSE Hard Mode\": Write & Truncate\n\nImplementing `write` and `truncate` is the most difficult part of an encrypted filesystem. Because AES-CBC is a block cipher (16-byte blocks), you cannot simply flip a bit in the middle of a file. If you change byte 10, every subsequent byte in that 16-byte block (and all following blocks in CBC mode) changes.\n\nMirrorFS solves this using a **Read-Modify-Write** cycle:\n1.  **Read** the entire encrypted file from disk.\n2.  **Decrypt** the entire file into a temporary buffer.\n3.  **Apply** the user's write/truncate operation to the plaintext buffer.\n4.  **Re-encrypt** the whole buffer with the IV.\n5.  **Wipe and Rewrite** the ciphertext back to the physical disk.\n\n```c\n// The core logic of xmp_write (Simplified)\nif (ciphertext_len > 0) {\n    read(fd, ciphertext, ciphertext_len);\n    decrypt(ciphertext, res, key, iv, plaintext); // Get current state\n    \n    memcpy(plaintext + offset, buf, size); // Apply new data\n    \n    // Scramble everything again\n    new_ciphertext_len = encrypt(plaintext, plaintext_len + size, key, iv, output);\n    pwrite(fd, output, new_ciphertext_len, 0); \n}\n```\n\n---\n\nMirrorFS demonstrates that a filesystem is more than just a place to store bits—it's a programmable interface. By hijacking the FUSE syscalls, we transformed a standard directory into a secure vault, proving that transparency and security can coexist through clever metadata management and robust cryptographic piping."
+};
+
+export default data;

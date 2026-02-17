@@ -25,37 +25,25 @@ pre, code {
 
 
 .prose code {
-
-  color: inherit;
-
-  background-color: rgba(229, 231, 235, 0.5); /* gray-200 with opacity */
-
+  color: #1a202c; /* dark gray */
+  background-color: #f7fafc; /* gray-100 */
   padding: 0.2rem 0.4rem;
-
   border-radius: 0.25rem;
-
+  font-weight: 400;
 }
-
-
 
 .prose pre {
-
-  background-color: #f3f4f6; /* gray-100 */
-
-  padding: 1rem;
-
-  border-radius: 0.25rem;
-
+  background-color: #1a202c !important; /* dark background for blocks */
+  color: #f7fafc !important;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
-
+  margin: 1.5rem 0;
 }
 
-
-
 .prose pre code {
-
-  background-color: transparent;
-
+  background-color: transparent !important;
+  color: inherit !important;
   padding: 0;
-
+  border-radius: 0;
 }

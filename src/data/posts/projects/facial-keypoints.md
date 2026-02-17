@@ -1,3 +1,12 @@
+---
+id: 10
+title: Facial Keypoints
+subtitle: Detecting Facial Keypoints using Deep Learning
+tags: ["Machine Learning", "Computer Vision"]
+date: "2024-02-04T12:00:00"
+services: ["Deep Learning", "Computer Vision", "PyTorch"]
+polished: true
+---
 # Building a Facial Keypoint Detector with Deep Learning
 
 Facial keypoint detection is a classic computer vision problem with applications ranging from face filters and animation to biometric security and medical diagnosis. In this project, I developed a Convolutional Neural Network (CNN) to automatically identify 15 key points on human faces, such as the centers of the eyes, the tip of the nose, and the corners of the mouth.

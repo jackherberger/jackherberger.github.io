@@ -65,11 +65,11 @@ const Post = () => {
           </div>
         </div>
 
-        <div className='prose prose-lg max-w-none mx-auto text-left'>
+        <div className='prose prose-lg max-w-none mx-auto text-left prose-pre:bg-gray-100 prose-pre:text-black'>
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>{post.content.trim()}</ReactMarkdown>
         </div>
 
-        {post.image && (
+        {post.image && post.image !== "null" && (
           <div className='w-full h-auto mt-8'>
             <img src={post.image} alt={post.title} className='w-full h-full object-cover' />
           </div>

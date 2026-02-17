@@ -1,23 +1,20 @@
-import fs from "fs";
-
-const markdown = fs.readFileSync("./facial-keypoints.md", "utf8");
-
+// AUTO-GENERATED FROM facial-keypoints.md - DO NOT EDIT DIRECTLY
 const data = {
-  id: 10,
-  title: "Facial Keypoints",
-  subtitle: "Detecting Facial Keypoints using Deep Learning",
-  tags: ["Machine Learning", "Computer Vision"],
-  date: "2024-02-04T12:00:00",
-  services: ["Deep Learning", "Computer Vision", "PyTorch"],
-  image: null,
-  content: markdown,
-  polished: true
+  "id": 10,
+  "title": "Facial Keypoints",
+  "subtitle": "Detecting Facial Keypoints using Deep Learning",
+  "tags": [
+    "Machine Learning",
+    "Computer Vision"
+  ],
+  "date": "2024-02-04T12:00:00",
+  "services": [
+    "Deep Learning",
+    "Computer Vision",
+    "PyTorch"
+  ],
+  "polished": true,
+  "content": "# Building a Facial Keypoint Detector with Deep Learning\n\nFacial keypoint detection is a classic computer vision problem with applications ranging from face filters and animation to biometric security and medical diagnosis. In this project, I developed a Convolutional Neural Network (CNN) to automatically identify 15 key points on human faces, such as the centers of the eyes, the tip of the nose, and the corners of the mouth.\n\n## The Data\n\nThe dataset consists of thousands of grayscale images, each sized at 96x96 pixels. Each image is paired with 15 keypoints, represented as $(x, y)$ coordinates. A unique challenge with this dataset is that many keypoints are missing (encoded as `NaN`), meaning our model and loss function must be robust enough to handle incomplete labels.\n\nBefore training, it's essential to visualize the data to understand the mapping between images and their corresponding keypoints.\n\n```python\nimport matplotlib.pyplot as plt\n\ndef plot_keypoints(image, keypoints):\n    plt.imshow(image.reshape(96, 96), cmap=\"gray\")\n    # Plot x, y pairs\n    for i in range(0, len(keypoints), 2):\n        plt.plot(keypoints[i], keypoints[i+1], \"ro\")\n    plt.show()\n\n# Visualizing a sample from the dataset\nplot_keypoints(images[0], keypoints[0])\n```\n\n![Facial Keypoints Data Visualization](/assets/projects/data_viz.png)\n\n## Preprocessing and Scaling\n\nTo ensure stable training, I normalized both the pixel values and the keypoint coordinates using `MinMaxScaler`. This maps all inputs to a range between 0 and 1. For the keypoints, I had to be careful to ignore the `NaN` values during the scaling process to maintain the spatial relationships.\n\n## Designing the Architecture\n\nFor this task, I implemented a \"VGG-style\" architecture. This design uses repeated blocks of small $3 \times 3$ convolutional filters followed by max-pooling layers to downsample the spatial dimensions while increasing the depth of the feature maps.\n\n```python\nimport torch.nn as nn\n\nclass CNN(nn.Module):\n    def __init__(self):\n        super(CNN, self).__init__()\n        self.features = nn.Sequential(\n            nn.Conv2d(1, 64, kernel_size=3, padding=1),\n            nn.ReLU(inplace=True),\n            nn.MaxPool2d(kernel_size=2, stride=2),\n\n            nn.Conv2d(64, 128, kernel_size=3, padding=1),\n            nn.ReLU(inplace=True),\n            nn.MaxPool2d(kernel_size=2, stride=2),\n\n            nn.Conv2d(128, 256, kernel_size=3, padding=1),\n            nn.ReLU(inplace=True),\n            nn.MaxPool2d(kernel_size=2, stride=2),\n        )\n        self.classifier = nn.Sequential(\n            nn.Linear(256 * 12 * 12, 4096),\n            nn.ReLU(inplace=True),\n            nn.Dropout(),\n            nn.Linear(4096, 30), # 15 keypoints * 2 coordinates\n        )\n\n    def forward(self, x):\n        x = self.features(x)\n        x = x.view(x.size(0), -1)\n        x = self.classifier(x)\n        return x\n```\n\n## Handling Missing Values in Loss\n\nStandard loss functions like Mean Squared Error (MSE) don't handle `NaN` values well. I implemented a custom \"Masked Mean Absolute Error\" loss. This function creates a binary mask that is 0 where the ground truth is `NaN` and 1 otherwise, ensuring that the model only learns from the available labels.\n\n```python\ndef masked_mae_loss(y_pred, y_true):\n    mask = 1 - torch.isnan(y_true).float()\n    diff = torch.abs(y_true - y_pred)\n    return torch.nansum(diff * mask) / torch.nansum(mask)\n```\n\n## Results and Improvements\n\nThe base model achieved a respectable Mean Absolute Error (MAE) of approximately 5 pixels on the validation set. However, there was still room for improvement. By adding **Batch Normalization** and **L2 Regularization**, I was able to further stabilize the training process and reduce overfitting.\n\n![Training and Validation Loss Curve](/assets/projects/loss_curve.png)\n\nThe final model shows impressive accuracy, accurately placing keypoints even on faces with varying orientations and expressions. Below is a comparison of the actual vs. predicted keypoints:\n\n- **Red Dots**: Actual Keypoints\n- **Blue Dots**: Predicted Keypoints\n\n![Actual vs Predicted Keypoints 1](/assets/projects/prediction_1.png)\n![Actual vs Predicted Keypoints 2](/assets/projects/prediction_2.png)\n\nThis project demonstrates the power of CNNs in handling spatial regression tasks and the importance of custom loss functions when working with real-world, \"noisy\" datasets."
 };
 
-const output = `
-const data = ${JSON.stringify(data, null, 2)};
-
 export default data;
-`;
-
-fs.writeFileSync("./facial-keypoints.js", output);
